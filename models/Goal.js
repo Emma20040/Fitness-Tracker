@@ -33,7 +33,3 @@ const goalSchema = new mongoose.Schema({
 
 module.exports = mongoose.model('Goal', goalSchema);
 
-cindynaah235@gmail 
-Cindy
-Naah
-681164542
