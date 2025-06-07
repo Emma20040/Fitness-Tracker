@@ -1,0 +1,160 @@
+////////Register (POST)
+Headers:
+  Content-Type: application/json
+
+url:http://localhost:5000/api/auth/register
+
+{
+    "username": "testuser3",
+    "email": "test3@example.com",
+    "password": "test123"
+}
+
+
+//////////////////////////login (POST)
+Headers:
+  Content-Type: application/json
+
+url:http://localhost:5000/api/auth/login 
+
+{
+    "email": "test@example.com",
+    "password": "test123"
+}
+
+
+//////////////////////////////// create workouts (POST)
+POST http://localhost:5000/api/workouts
+Headers:
+  Content-Type: application/json
+  x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+
+Body (raw JSON):
+{
+    "type": "cardio",
+    "duration": 30,
+    "caloriesBurned": 250,
+    "exercises": [
+        {
+            "name": "Running",
+            "duration": 30
+        }
+    ]
+}
+
+
+
+////////////////////////get all workouts
+URL: api/workouts
+
+Headers:
+
+x-auth-token: {{auth_token}}
+
+
+//////////////////////get a single workout
+
+Method: GET
+
+URL: baseurl/api/workouts/id 
+
+Headers:
+
+x-auth-token: {{auth_token}}
+
+
+//////////////////// Update Workout
+
+Method: PUT
+
+URL: {{base_url}}/workouts/id
+
+Headers:
+
+Content-Type: application/json
+
+x-auth-token: {{auth_token}}
+
+json
+{
+    "duration": 50,
+    "caloriesBurned": 350
+}
+
+
+////////////////////Delete Workout 
+
+
+Method: DELETE
+
+URL: {{base_url}}/workouts/id
+
+Headers:
+
+x-auth-token: {{auth_token}}
+
+
+
+//////////////////////////////////Create Goal 
+
+Method: POST
+
+URL: {{base_url}}/goals
+
+Headers:
+
+Content-Type: application/json
+
+x-auth-token: {{auth_token}}
+
+JSON
+{
+    "type": "weight",
+    "target": 180,
+    "unit": "lbs",
+    "deadline": "2023-12-31"
+}
+
+
+////////////////////////////////Get All Goals 
+
+Method: GET
+
+URL: {{base_url}}/goals
+
+Headers:
+
+x-auth-token: {{auth_token}}
+
+
+
+///////////////////////Update Goal Progress 
+
+Method: PUT
+
+URL: {{base_url}}/goals/goalid
+
+Headers:
+
+Content-Type: application/json
+
+x-auth-token: {{auth_token}}
+
+JSON 
+{
+    "current": 175,
+    "isAchieved": false
+}
+
+
+
+
+////////////////////////////////////Delete Goal
+
+Method: DELETE
+
+URL: {{base_url}}/goals/goalid
+
+Headers:
+
+x-auth-token: {{auth_token}}
